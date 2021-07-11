@@ -8,7 +8,7 @@ Ito ay magsisilbing backend API para sa Disaster Relief Ops Portal.
 
 ---
 
-### Setup
+## Setup
 Go to root project directory
 ``` sh
 $ cd ict/dr_portal_api
@@ -23,7 +23,10 @@ Activate virtual environment
 ``` sh
 $ source venv/bin/activate
 ```
-
+Install dependencies
+``` sh
+$ pip3 install -r requirements.txt
+```
 ## Website Test Run
 Run django in development mode 
 ``` sh
