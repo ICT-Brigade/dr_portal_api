@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig', #This object was created for us in /catalog/apps.py
     'scraper.apps.ScraperConfig',
     'hello_world', #This object was created for us in /catalog/apps.py,
-    'catalog'
 ]
 
 MIDDLEWARE = [
