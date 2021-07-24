@@ -10,7 +10,7 @@ def run(*args, **kwargs):
 	try:
 		options = construct_options()
 		campaigns = scraper.get_tweets(**options)
-		create_campaigns(campaigns[:2])
+		create_campaigns(campaigns)
 	except Exception as e:
 		raise e
 
