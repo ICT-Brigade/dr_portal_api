@@ -18,7 +18,7 @@ class TokenTypeAdmin(admin.ModelAdmin):
 
 @admin.register(models.CampaignType)
 class CampaignTypeAdmin(admin.ModelAdmin):
-	list_display = DEFAULT_LIST_COLS
+	list_display = DEFAULT_LIST_COLS + ("value",)
 
 
 @admin.register(models.Post)
