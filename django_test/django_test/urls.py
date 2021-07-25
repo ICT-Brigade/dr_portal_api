@@ -20,14 +20,12 @@ from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('campaigns/', include('catalog.urls')),
-    path('hello/', include('hello_world.urls')),
+    path('catalog/', include('catalog.urls'))
     # Added application code
 ]
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='hello/', permanent=True)),
-    path('catalog/', include('hello_world.urls')),  #TODO: investigate permament redirect created in previous commit
+    path('', RedirectView.as_view(url='catalog/list', permanent=True))
 ]
