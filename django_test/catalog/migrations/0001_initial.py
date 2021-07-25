@@ -16,10 +16,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CampaignType',
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('value', models.CharField(max_length=1024, unique=True)),
+                ('value', models.CharField(max_length=1024, primary_key=True, serialize=False)),
             ],
             options={
                 'abstract': False,
@@ -28,17 +27,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Setting',
             fields=[
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
                 ('key', models.CharField(max_length=1024, primary_key=True, serialize=False)),
                 ('value', models.CharField(max_length=1024)),
             ],
+            options={
+                'abstract': False,
+            },
         ),
         migrations.CreateModel(
             name='TokenType',
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('value', models.CharField(max_length=100, unique=True)),
+                ('value', models.CharField(max_length=100, primary_key=True, serialize=False)),
             ],
             options={
                 'abstract': False,
@@ -47,10 +50,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Token',
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('value', models.CharField(max_length=1024)),
+                ('value', models.CharField(max_length=1024, primary_key=True, serialize=False)),
                 ('type', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='catalog.tokentype')),
             ],
             options={
@@ -60,9 +62,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('post_id', models.CharField(max_length=255, unique=True)),
                 ('link', models.URLField(max_length=1024)),
                 ('description', models.TextField()),

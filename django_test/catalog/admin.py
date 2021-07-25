@@ -3,27 +3,27 @@ from django.contrib.admin.options import InlineModelAdmin
 from . import models
 
 
-DEFAULT_LIST_COLS = ("id", "created_at",)
+DEFAULT_LIST_COLS = ("created_at", "updated_at")
 
 
 @admin.register(models.Token)
 class TokenAdmin(admin.ModelAdmin):
-	list_display = DEFAULT_LIST_COLS + ("type", 'value')
+	list_display = ("value", "type",) + DEFAULT_LIST_COLS
 
 
 @admin.register(models.TokenType)
 class TokenTypeAdmin(admin.ModelAdmin):
-	list_display = DEFAULT_LIST_COLS + ('value',)
+	list_display = ('value',) + DEFAULT_LIST_COLS
 
 
 @admin.register(models.CampaignType)
 class CampaignTypeAdmin(admin.ModelAdmin):
-	list_display = DEFAULT_LIST_COLS + ("value",)
+	list_display = ("value",) + DEFAULT_LIST_COLS
 
 
 @admin.register(models.Post)
 class PostAdmin(admin.ModelAdmin):
-	list_display = DEFAULT_LIST_COLS + ("description", "link",)
+	list_display = ("id", "description", "link",) + DEFAULT_LIST_COLS
 
 
 @admin.register(models.Setting)
