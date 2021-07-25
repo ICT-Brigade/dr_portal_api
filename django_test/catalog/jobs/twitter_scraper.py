@@ -17,25 +17,11 @@ def run(*args, **kwargs):
 
 
 def construct_options():
-	from_date = None
-	to_date = None
-	limit = None
-
-	try:
-		from_date = Setting.objects.get(key="from_date")
-		to_date = Setting.objects.get(key="to_date")
-		limit = Setting.objects.get(key="limit")
-	except ObjectDoesNotExist as e:
-		pass
+	settings_map = {s.key: s.value for s in Setting.objects.all()}
 
 	query = get_query()
-
-	return {
-		'from_date': from_date.value if from_date else None,
-		'to_date': to_date.value if to_date else None,
-		'hashtags': query,
-		'limit': limit.value if limit else None
-	}
+	settings_map["hashtags"] = query
+	return settings_map
 
 
 def get_query():
