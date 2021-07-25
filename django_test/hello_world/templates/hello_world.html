@@ -1,21 +1,20 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 {% if posts_list %}
-    <ul>
-    {% for post in posts_list %}
-        <li>
-          <div>
-            <img src="{{post.image_link}}" height="150">
-          </div>
-          <div>
-            {{ post.description }}
-          </div>
-          <div>
-            {{ post.source_account }}
-          </div>
-        </li>
-        <a href="{{post.link}}">Go to page</a>
-        <br><br>
-    {% endfor %}
-    </ul>
+<ul>
+  {% for post in posts_list %}
+  <div class="card">
+    <img src="{{ post.image_link }}" alt="Image Unavailable">
+    <div class="container">
+      <h4><b>{{ post.beneficiary_location }} - {{ post.source_account }}</b></h4>
+      <p>{{ post.description }}</p>
+      <a href="{{post.link}}">Go to page</a>
+    </div>
+  </div>
+  {% endfor %}
+</ul>
 {% else %}
-    <p>No posts are available.</p>
+<p>No posts are available.</p>
 {% endif %}
