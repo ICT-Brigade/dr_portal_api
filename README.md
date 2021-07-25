@@ -27,6 +27,18 @@ Install dependencies
 ``` sh
 $ pip3 install -r requirements.txt
 ```
+
+## Setup database
+For initial database setup and if there are database schema changes, run the ff. commands
+```sh
+$ python3 django_test/manage.py makemigrations
+$ python3 django_test/manage.py migrate
+```
+## Initialize seeders
+Run the ff. command
+```sh
+$ python3 django_test/manage.py runseeder
+```
 ## Website Test Run
 Run django in development mode 
 ``` sh
