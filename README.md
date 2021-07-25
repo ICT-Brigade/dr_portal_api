@@ -33,7 +33,7 @@ Run django in development mode
 $ python3 django_test/manage.py runserver
 ```
 
-##Twitter scraper management
+## Twitter scraper management
 Run twitter scraper
 ```sh
 $ python3 django_test/manage.py twitterscraper --run
