@@ -39,5 +39,5 @@ CAMPAIGN_QS = {
 		}
 	},
 	"additionalProperties": False,
-	"required": ["hashtags"]
+	# "required": ["hashtags"]
 }
