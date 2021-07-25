@@ -1,8 +1,10 @@
+import uuid
 from django.db import models
 from shared.mixins import BaseModelMixin
 
 
 class Post(BaseModelMixin):
+	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 	post_id = models.CharField(max_length=255, unique=True)
 	link = models.URLField(max_length=1024)
 	description = models.TextField()
