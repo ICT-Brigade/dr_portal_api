@@ -1,9 +1,12 @@
-import traceback
+import traceback, json
+from attr import fields
 from django.http import JsonResponse
 from django.core.exceptions import ValidationError
+from django.core import serializers
 
 from jsonschema import FormatChecker
 
+from catalog.models import Post
 from scraper.scraper import scraper
 from catalog.schemas.campaigns import CAMPAIGN_QS
 
@@ -26,10 +29,10 @@ def get_campaigns(request):
 		if errors:
 			raise ValidationError("schema validation error")
 
-		campaigns = scraper.get_tweets(**qs)
+		campaigns = Post.objects.all()
 		data = {
-			"success": False,
-			"data": campaigns,
+			"success": True,
+			"data": [c.as_dict() for c in campaigns],
 			"page_info": {
 				"total_count": len(campaigns)
 			}
