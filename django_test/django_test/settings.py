@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalog.apps.CatalogConfig', #This object was created for us in /catalog/apps.py
-    'scraper.apps.ScraperConfig',
-    'hello_world', #This object was created for us in /catalog/apps.py,
+    'scraper.apps.ScraperConfig'
 ]
 
 MIDDLEWARE = [
