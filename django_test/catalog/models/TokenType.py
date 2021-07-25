@@ -3,4 +3,4 @@ from shared.mixins import BaseModelMixin
 
 
 class TokenType(BaseModelMixin):
-	value = models.CharField(max_length=100, unique=True)
+	value = models.CharField(primary_key=True, max_length=100)

@@ -36,13 +36,13 @@ def construct_options():
 def get_query():
 	sql = """
 		SELECT
-			tk.id as id,
+			tk.value as id,
 			tkt.value as type,
 			tk.value as value
 		FROM catalog_token tk
 		LEFT JOIN catalog_tokentype tkt
 		ON (
-			tk.type_id = tkt.id
+			tk.type_id = tkt.value
 		);
 	"""
 	tokens = db.execute([[sql, None]])
