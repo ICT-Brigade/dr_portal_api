@@ -1,0 +1,18 @@
+[
+    {
+        "model": "catalog.tokentype",
+        "pk": "TAG",
+        "fields": {
+            "created_at": "2021-07-25T08:11:12.324Z",
+            "updated_at": "2021-07-25T08:11:12.324Z"
+        }
+    },
+    {
+        "model": "catalog.tokentype",
+        "pk": "KEYWORD",
+        "fields": {
+            "created_at": "2021-07-25T08:11:19.958Z",
+            "updated_at": "2021-07-25T08:11:19.958Z"
+        }
+    }
+]
