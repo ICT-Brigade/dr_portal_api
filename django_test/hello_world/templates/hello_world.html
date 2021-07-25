@@ -1,1 +1,21 @@
-<h1>Hello, World!</h1>
+{% if posts_list %}
+    <ul>
+    {% for post in posts_list %}
+        <li>
+          <div>
+            <img src="{{post.image_link}}" height="150">
+          </div>
+          <div>
+            {{ post.description }}
+          </div>
+          <div>
+            {{ post.source_account }}
+          </div>
+        </li>
+        <a href="{{post.link}}">Go to page</a>
+        <br><br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
