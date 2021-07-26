@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap5',
     'catalog.apps.CatalogConfig', #This object was created for us in /catalog/apps.py
     'scraper.apps.ScraperConfig'
 ]

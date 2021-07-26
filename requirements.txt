@@ -4,4 +4,7 @@ jsonschema
 
 # Heroku deployment packages
 gunicorn
-django-heroku
+django_heroku
+
+# Front-end bootstrap
+django-bootstrap-v5
