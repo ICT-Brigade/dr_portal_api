@@ -1,4 +1,3 @@
-from typing import ContextManager
 from django.core.management.base import BaseCommand, CommandError
 
 from catalog.jobs import twitter_scraper
@@ -17,8 +16,24 @@ class Command(BaseCommand):
 	def handle(self, *args, **options):
 		try:
 			if options["run"]:
-				twitter_scraper.run(*args, **options)
-				self.stdout.write(self.style.SUCCESS("Successfully scraped new tweets."))
-				self.stdout.write(self.style.SUCCESS("Successfully loaded new tweets in database."))
+				data = twitter_scraper.run(*args, **options)
+				self.show_messsage(len(data))
 		except CommandError as e:
 			raise e
+
+	def show_messsage(self, count):
+		if count:
+			self.stdout.write(
+				self.style.SUCCESS(
+					f"Successfully scraped {count} new tweet(s)."
+				)
+			)
+			self.stdout.write(
+				self.style.SUCCESS(
+					f"Successfully loaded {count} new tweet(s) in database."
+				)
+			)
+		else:
+			self.stdout.write(
+				self.style.SUCCESS("No new tweets as of the moment.")
+			)
