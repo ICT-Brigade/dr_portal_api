@@ -31,22 +31,22 @@ $ pip3 install -r requirements.txt
 ## Setup database
 For initial database setup and if there are database schema changes, run the ff. commands
 ```sh
-$ python3 django_test/manage.py makemigrations
-$ python3 django_test/manage.py migrate
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
 ```
 ## Initialize seeders
 Run the ff. command
 ```sh
-$ python3 django_test/manage.py runseeder
+$ python3 manage.py runseeder
 ```
 ## Website Test Run
 Run django in development mode 
 ``` sh
-$ python3 django_test/manage.py runserver
+$ python3 manage.py runserver
 ```
 
 ## Twitter scraper management
 Run twitter scraper
 ```sh
-$ python3 django_test/manage.py twitterscraper --run
+$ python3 manage.py twitterscraper --run
 ```
