@@ -1,4 +1,7 @@
 Django
 twint
 jsonschema
+
+# Heroku deployment packages
 gunicorn
+django-heroku
