@@ -11,7 +11,7 @@ Ito ay magsisilbing backend API para sa Disaster Relief Ops Portal.
 ## Setup
 Go to root project directory
 ``` sh
-$ cd ict/dr_portal_api
+$ cd dr_portal_api/
 ```
 
 ## Setup Virtual Environment
