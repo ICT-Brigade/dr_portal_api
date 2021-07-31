@@ -1,9 +1,10 @@
 from django.urls import path
 
-from .views import campaigns
+from .views import api
 from .views import catalog
 
 urlpatterns = [
-    path('', campaigns.get_campaigns),
-    path('list', catalog.list)
+	path('api/campaigns/', api.campaign.get_campaigns),
+	path('api/campaigns/<campaign_id>', api.campaign.get_campaign_by_id),
+	path('list', catalog.list)
 ]
