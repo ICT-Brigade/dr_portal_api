@@ -1,20 +1,49 @@
-{% load static %}
+{% extends "base.html" %}
+{%block content%}
+<!-- {% load static %} -->
 
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+<script src="{% static 'js/campaign_list.js' %}" defer></script>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  data-backdrop=""
+  id="campaign-dtl-modal"
+  tabindex="-1"
+  aria-labelledby="campaign-dtl-modal-title"
+  aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-body" id="campaign-modal-body"></div>
+        </div>
+      </div>
+    </div>
+</div>
 
 {% if posts_list %}
-<ul>
+<ul class="container d-grid gap-4">
   {% for post in posts_list %}
-  <div class="card">
-    <img src="{{ post.image_link }}" alt="Image Unavailable">
-    <div class="container">
-      <h4><b>{{ post.beneficiary_location }} - {{ post.source_account }}</b></h4>
-      <p>{{ post.description }}</p>
-      <a href="{{post.link}}">Go to page</a>
+  <li class="row gy-100">
+    <div
+      class="d-flex flex-row m-0 card"
+      data-bs-toggle="modal"
+      data-bs-target="#campaign-dtl-modal"
+      id={{post.id}}>
+      <div class="col">
+          <img class="landscape" src="{{ post.image_link }}" alt="Image Unavailable">
+      </div>
+      <div class="col text-wrap">
+        <h4><b>{{ post.beneficiary_location }} - {{ post.source_account }}</b></h4>
+        <p>{{ post.description }}</p>
+        <a href="{{post.link}}">Go to page</a>
+      </div>
     </div>
-  </div>
+  </li>
   {% endfor %}
 </ul>
 {% else %}
 <p>No posts are available.</p>
 {% endif %}
+
+{%endblock content%}
