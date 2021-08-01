@@ -35,15 +35,6 @@ window.onload = function() {
                 </div>
             </div>
             `;
-            const img = document.getElementById(`img_${campaign_id}`).firstChild;
-            if(img) {
-                img.onload = function() {
-                    if(img.height > img.width) {
-                        img.height = '100%';
-                        img.width = 'auto';
-                    }
-                };
-            }
         } catch (error) {
             console.log(error.message);
             campaign_modal_body.innerHTML = `
