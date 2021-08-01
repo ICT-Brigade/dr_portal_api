@@ -70,6 +70,8 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_DEBUG = True
+
 WSGI_APPLICATION = 'main.wsgi.application'
 
 
