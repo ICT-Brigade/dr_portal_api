@@ -1,5 +1,6 @@
+import os
 from django.core.exceptions import ObjectDoesNotExist
-
+from django.conf import settings
 from catalog.models import Setting, Post, Token
 from scraper.scraper import scraper
 from shared import obj_utils
@@ -77,7 +78,7 @@ def clean_campaigns(raw_campaigns):
 				link=campaign.get("link"),
 				description=campaign.get("tweet"),
 				source_account=campaign.get("username"),
-				image_link=campaign.get("thumbnail"),
+				image_link=campaign.get("thumbnail") or os.path.join(settings.STATIC_URL, '/default.png'),
 				posted_at=campaign.get("date")
 			))
 

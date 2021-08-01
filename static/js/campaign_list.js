@@ -19,14 +19,14 @@ $('#campaign-dtl-modal').on('show.bs.modal', function (e) {
                     >
                 </div>
                 <div class="col-md-7 text-wrap">
-                    <h4>
-                        <b>${data.source_account}</b>
+                    <h4 class="campaign-modal-title">
+                        ${data.campaign_type ? data.source_account + " " +data.campaign_type : data.source_account}
                     </h4>
                     <p>${data.description}</p>
                     <a
-                        class="btn btn-primary"
+                        class="btn btn-primary dr-btn"
                         href="${data.link}">
-                        DONATE or VOLUNTEER
+                        DONATE
                     </a>
                 </div>
             </div>
