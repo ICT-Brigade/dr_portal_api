@@ -25,7 +25,7 @@ SECRET_KEY = '#k0mq2!4#w8&xu9%mij6!^r(@0sa_u-5mske7j%%*xrf(oo31g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*.herokuapp.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".herokuapp.com"]
 
 
 # Application definition
@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+import dj_database_url
 
 DATABASES = {
     'default': {
@@ -85,6 +86,12 @@ DATABASES = {
     }
 }
 
+try:
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+except Exception as e:
+    print(e)
+    print("Error encountered loading DB configs. Defaults preserved")
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

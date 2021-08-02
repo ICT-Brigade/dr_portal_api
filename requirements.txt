@@ -13,6 +13,7 @@ charset-normalizer==2.0.3
 dataclasses==0.8
 Django==3.2.5
 django-bootstrap-v5==1.0.4
+dj_database_url
 elasticsearch==7.13.4
 fake-useragent==0.1.11
 geographiclib==1.52
@@ -26,7 +27,7 @@ jsonschema==3.2.0
 multidict==5.1.0
 numpy==1.19.5
 pandas==1.1.5
-pkg-resources==0.0.0
+psycopg2
 pycares==4.0.0
 pycparser==2.20
 pyrsistent==0.18.0
