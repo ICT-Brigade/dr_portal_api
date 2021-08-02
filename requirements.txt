@@ -13,6 +13,7 @@ charset-normalizer==2.0.3
 dataclasses==0.8
 Django==3.2.5
 django-bootstrap-v5==1.0.4
+dj_database_url
 elasticsearch==7.13.4
 fake-useragent==0.1.11
 geographiclib==1.52

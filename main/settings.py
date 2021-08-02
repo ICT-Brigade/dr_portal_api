@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+import dj_database_url
 
 DATABASES = {
     'default': {
@@ -85,6 +86,12 @@ DATABASES = {
     }
 }
 
+try:
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+except Exception as e:
+    print(e)
+    print("Error encountered loading DB configs. Defaults preserved")
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
