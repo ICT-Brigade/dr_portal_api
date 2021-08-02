@@ -1,12 +1,29 @@
+.main-content {
+  background-color: #4f1c5f;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
 }
 
+.card-title {
+  color: #fff;
+}
+
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* override bootstrap button styling */
+.dr-btn {
+  background-color: #ffab40 !important;
+  border: 0 !important;
+  border-color: none !important;
+  color: #4f1c5f !important;
+  font-weight: bold !important;
 }
 
 /* Add some padding inside the card container */
@@ -15,7 +32,91 @@
   margin: 25px 0px 25px 0px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 /* Add rounded corners to the top left and the top right corner of the image */
 img {
   border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  max-height: 100%;
 }
+
+/* custom image size used in modal*/
+.portrait {
+  object-fit: contain;
+  width: 500px;
+  height: 600px;
+}
+
+/* custom image size used in listview*/
+.landscape {
+  object-fit: contain;
+  height: 250px;
+  width: 600px;
+}
+
+/* custom image size used in header*/
+.square {
+  object-fit: contain;
+  height: 40px;
+  width: 40px;
+}
+
+ul, li {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* style for main header */
+.main-nav {
+  background-color: #3e164b;
+  color: #d0c2d4;
+}
+
+/* style for search/filter bar */
+#utility-bar {
+  background-color: #4f1c5f;
+}
+
+#utility-bar input[type="text"] {
+  background-color: #71497e;
+  color: #fff;
+  border-radius: 3px;
+  border: 0;
+}
+
+#utility-bar input[type="button"] {
+  background-color: #fff;
+  color: #71497e;
+  border-radius: 10px;
+  border: 0;
+  font-weight: bold;
+}
+
+/* style for campaign list */
+.listview-container {
+  color: #d0c2d4;
+}
+
+.listview-container .card {
+  background: #4f1c5f;
+}
+
+.listview-container li:nth-child(odd) .card {
+  background: #693e76;
+}
+
+/* style for modal */
+#campaign-modal-body {
+  background-color: #4f1c5f;
+  color: #d0c2d4;
+}
+
+.campaign-modal-title {
+  color: #ffab40;
+  font-weight: bold;
+}
+

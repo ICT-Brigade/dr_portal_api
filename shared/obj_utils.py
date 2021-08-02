@@ -14,3 +14,12 @@ def keys_to_number(obj, keys, to_int=False, to_float=False):
 		except ValueError as e:
 			raise ValidationError(f"'{k}' should be a valid number")
 	return new_dict
+
+
+def as_map(arr, key):
+	"""Converts a list of dict or object into a map"""
+
+	def get_key(obj, key):
+		return obj[key] if type(obj) == dict else getattr(obj, key)
+
+	return {get_key(element, key): element for element in arr}

@@ -7,7 +7,7 @@ DEFAULT_SEARCH = " volunteer OR donation OR donasyon OR in kind OR relief OR res
 QS_OPTS_MAP = {
 	"Hashtags": {
 		"key": "Search",
-		"operation": "concat",
+		"operation": None,
 		"default": DEFAULT_SEARCH
 	},
 	"From_date": {
