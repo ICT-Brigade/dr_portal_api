@@ -1,11 +1,11 @@
 from attr import fields
 from django.db import models
+from django.forms.models import model_to_dict
 
 
 class BaseModel(models.Model):
 	def as_dict(self):
-		fields = [f.name for f in self._meta.get_fields()]
-		return {k:v for k, v in vars(self).items() if k in fields}
+		return model_to_dict(self)
 
 	class Meta:
 		abstract = True
