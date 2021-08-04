@@ -31,10 +31,12 @@ def get_campaigns(request):
 
 def get_campaign_by_id(request, campaign_id):
 	try:
-		campaign = Post.objects.get(id=campaign_id)
+		campaign = Post.objects.filter(
+				pk=campaign_id
+			).select_related("campaign_type")
 		data = {
 			"success": True,
-			"data": campaign.as_dict()
+			"data": campaign[0].as_dict()
 		}
 		return JsonResponse(data, safe=False)
 	except Exception as e:

@@ -38,7 +38,7 @@
 
 /* Add rounded corners to the top left and the top right corner of the image */
 img {
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px;
   max-width: 100%;
   max-height: 100%;
 }
@@ -46,8 +46,8 @@ img {
 /* custom image size used in modal*/
 .portrait {
   object-fit: contain;
-  width: 500px;
-  height: 600px;
+  /* width: 500px;
+  height: 600px; */
 }
 
 /* custom image size used in listview*/
@@ -101,22 +101,42 @@ ul, li {
   color: #d0c2d4;
 }
 
-.listview-container .card {
-  background: #4f1c5f;
-}
-
 .listview-container li:nth-child(odd) .card {
   background: #693e76;
 }
 
+
+.listview-container .card {
+  background: #4f1c5f;
+  /* transition: none !important;
+  border-radius: 0px !important;
+  border: none !important;
+  box-shadow: none !important; */
+}
+
 /* style for modal */
-#campaign-modal-body {
+.modal-body {
   background-color: #4f1c5f;
   color: #d0c2d4;
+  border-radius: 10px;
 }
+
+.modal-content {
+  background-color: #4f1c5f !important;
+}
+
+/* .campaign-modal-img img {
+  object-fit: contain;
+  border-radius: 0px !important;
+} */
 
 .campaign-modal-title {
   color: #ffab40;
   font-weight: bold;
 }
 
+.campaign-modal-tag {
+  background-color: #87546a !important;
+  color: #ffab40 !important;
+  border-radius: 10px;
+}

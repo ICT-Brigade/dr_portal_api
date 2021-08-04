@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% include "campaign_detail_modal.html" %}
 
 <script src="{% static 'js/campaign_list.js' %}" defer></script>
-  {% include "campaign_detail_modal.html" %}
-  <div class="main-content">
+  <div class="d-flex flex-column position-relative main-content">
     {% include "utility_bar.html" %}
     
     {% if posts_list %}
@@ -17,16 +17,23 @@
               data-bs-toggle="modal"
               data-bs-target="#campaign-dtl-modal"
               id={{post.id}}>
-              <div class="col">
-                {% if post.image_link %}
-                  <img class="landscape " src="{{ post.image_link }}" alt="Image Unavailable">
+              <div class="col-4">
+                {% if post.image_link == "/default.png"  or not post.image_link %}
+                  <img class="landscape" src="{{request.scheme}}://{{request.get_host}}{{static_url}}img/default.png" alt="Image Unavailable">
                 {% else %}
-                  <img class="landscape" src="{% static 'img/default.png' %}" alt="Image Unavailable">
+                  <img class="landscape" src="{{ post.image_link }}" alt="Image Unavailable">
                 {% endif %}
               </div>
-              <div class="col text-wrap">
-                <h4 class="card-title bold"><b>{{ post.beneficiary_location }}{{ post.source_account }}</b></h4>
-                <p>{{ post.description }}</p>
+              <div class="col-6 text-wrap mx-4">
+                <div>
+                  <h4 class="card-title bold">{{ post.beneficiary_location }}{{ post.source_account }}</h4>
+                  {%if post.campaign_type %}
+                    <span class="px-2 campaign-modal-tag">{{post.campaign_type.value|title}}</span>
+                  {% endif %}
+                </div>
+                <div>
+                  <p>{{ post.description }}</p>
+                </div>
                 <a class="btn btn-primary dr-btn" href="{{post.link}}">DONATE</a>
               </div>
             </div>
