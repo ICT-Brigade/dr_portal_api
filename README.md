@@ -34,19 +34,21 @@ For initial database setup and if there are database schema changes, run the ff.
 $ python3 manage.py makemigrations
 $ python3 manage.py migrate
 ```
-## Initialize seeders
-Run the ff. command
-```sh
-$ python3 manage.py runseeder
-```
+
 ## Website Test Run
-Run django in development mode 
+Run django in development mode
 ``` sh
 $ python3 manage.py runserver
 ```
 
 ## Twitter scraper management
-Run twitter scraper
+### Initialize seeders
+Seeder will setup keywords and tags for running the scraper
+Run the ff. command
+```sh
+$ python3 manage.py runseeder
+```
+### Run twitter scraper
 ```sh
 $ python3 manage.py twitterscraper --run
 ```
