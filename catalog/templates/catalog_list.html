@@ -4,22 +4,23 @@
 {% include "campaign_detail_modal.html" %}
 
 <script src="{% static 'js/campaign_list.js' %}" defer></script>
+
   <div class="d-flex flex-column position-relative main-content">
     {% include "utility_bar.html" %}
-    
+
     {% if posts_list %}
       <div class="listview-container">
-        <ul class="container-sm d-grid gap-4">
+        <ul class="container-sm d-grid gap-4 list-container">
           {% for post in posts_list %}
-          <li class="row">
+          <li class="row"
+            >
             <div
               class="d-flex flex-row card p-3"
-              data-bs-toggle="modal"
-              data-bs-target="#campaign-dtl-modal"
-              id={{post.id}}>
+                id={{post.id}}
+              >
               <div class="col-4">
                 {% if post.image_link == "/default.png"  or not post.image_link %}
-                  <img class="landscape" src="{{request.scheme}}://{{request.get_host}}{{static_url}}img/default.png" alt="Image Unavailable">
+                  <img class="landscape" src="{{request.scheme}}://{{request.get_host}}/static/img/default.png" alt="Image Unavailable">
                 {% else %}
                   <img class="landscape" src="{{ post.image_link }}" alt="Image Unavailable">
                 {% endif %}
@@ -34,15 +35,54 @@
                 <div>
                   <p>{{ post.description }}</p>
                 </div>
-                <a class="btn btn-primary dr-btn" href="{{post.link}}">DONATE</a>
+                  {% if 'volunteer' in post.campaign_type.value %}
+                    <a class="btn btn-primary dr-btn" href="{{post.link}}">VOLUNTEER</a>
+                  {% else %}
+                    <a class="btn btn-primary dr-btn" href="{{post.link}}">DONATE</a>
+                  {% endif %}
               </div>
             </div>
           </li>
           {% endfor %}
+          {% if page_obj.has_next %}
+              <p class="pagination">
+                  <a class="next-page" href="?page={{ page_obj.next_page_number }}">More...</a>
+              </p>
+          {% endif %}
+        </ul>
       </div>
-      </ul>
     {% else %}
       <p>No posts are available.</p>
     {% endif %}
   </div>
+
+    <!-- jQuery CDN hosted by Google -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jScroll plug-in CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+
+
+
+  <script>
+
+        jQuery(function ($) {
+            var $list = $('.list-container');
+            $list.jscroll({
+                loadingHtml: '<div class="text-center">' +
+                    '<img src="{% static 'img/loading.gif' %}" alt="Loading" />' +
+                    '</div>',
+                padding: 100,
+                pagingSelector: '.pagination',
+                nextSelector: 'a.next-page:last',
+                contentSelector: '.row,.pagination'
+            });
+
+
+            $list.on('click', '.card', function (event){
+              getById($(this).attr('id'));
+            });
+
+        });
+  </script>
+
 {%endblock content%}
