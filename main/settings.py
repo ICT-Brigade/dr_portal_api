@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'catalog.apps.CatalogConfig', #This object was created for us in /catalog/apps.py
     'scraper.apps.ScraperConfig'
 ]
@@ -66,6 +67,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+
+            'libraries': {
+                'templatetags' : 'catalog.templates.tags.templatetags'
+            }
         },
     },
 ]
