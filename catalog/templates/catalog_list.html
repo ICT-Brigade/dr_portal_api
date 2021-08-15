@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
+{% load templatetags %}
 {% include "campaign_detail_modal.html" %}
 
 <script src="{% static 'js/campaign_list.js' %}" defer></script>
@@ -46,7 +47,7 @@
           {% endfor %}
           {% if page_obj.has_next %}
               <p class="pagination">
-                  <a class="next-page" href="?page={{ page_obj.next_page_number }}">More...</a>
+                  <a class="next-page" href="?{% param_replace page=page_obj.next_page_number %}">More...</a>
               </p>
           {% endif %}
         </ul>
