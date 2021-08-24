@@ -12,23 +12,31 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # Initialize environment variables
 import environ
 env = environ.Env()
-environ.Env.read_env()
+environ.Env.read_env() # override env variables from .env file
 
 # Environment Variables
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
+TEMPLATE_DEBUG = DEBUG
+
+# Build paths inside the project like this:
+base_dir = environ.Path(__file__) - 2 # move to parent directory 2 times
+
+# Handling directories
+SITE_ROOT = base_dir()
+public_root = base_dir.path('public/')
+MEDIA_ROOT = public_root('media')
+MEDIA_URL = env.str('MEDIA_URL', default='media/')
+STATIC_ROOT = public_root('static')
+STATIC_URL = env.str('STATIC_URL', default='static/')
+
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".herokuapp.com"]
 
@@ -80,28 +88,27 @@ TEMPLATES = [
     },
 ]
 
-TEMPLATE_DEBUG = True
-
 WSGI_APPLICATION = 'main.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-import dj_database_url
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = { 'default': {} }
 
 try:
-    db_from_env = dj_database_url.config(conn_max_age=500)
+    # Build db from environment variable DATABASE_URL
+    db_from_env = env.db('DATABASE_URL')
     DATABASES['default'].update(db_from_env)
 except Exception as e:
     print(e)
-    print("Error encountered loading DB configs. Defaults preserved")
+    print("Error encountered loading DB configs. Starting local sqlite")
+    # Fallback to local sqlite implementation if there is no DB config
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -126,30 +133,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
-PROJECT_DIR = os.path.dirname(__file__)
-
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
-
-MEDIA_URL = '/media/'
-
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    base_dir.path('static/'),
 )
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
