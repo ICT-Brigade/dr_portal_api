@@ -15,10 +15,17 @@ import os
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
+
 # Initialize environment variables
 import environ
 env = environ.Env()
 environ.Env.read_env() # override env variables from .env file
+# .env key-value pair format: VARIABLE_KEY=VARIABLE_VALUE
+# notes on .env:
+# you may copy variables from https://dashboard.heroku.com/apps/dro-portal/settings
+# no need to add quotes '' to string values
+# .env should be in the same directory as settings.py
+
 
 # Environment Variables
 SECRET_KEY = env('SECRET_KEY')
