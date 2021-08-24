@@ -27,7 +27,7 @@ DEBUG = env.bool('DEBUG', default=False)
 TEMPLATE_DEBUG = DEBUG
 
 # Build paths inside the project like this: base_dir('file_or_dir_path_inside')
-base_dir = environ.Path(__file__) - 2 # move to parent directory 2 times
+base_dir = environ.Path(__file__) - 2 # creates path object from root directory
 
 # Handling directories
 SITE_ROOT = base_dir() # returns absolute path of base_dir
