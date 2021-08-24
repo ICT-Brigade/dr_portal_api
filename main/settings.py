@@ -26,22 +26,21 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 TEMPLATE_DEBUG = DEBUG
 
-# Build paths inside the project like this:
+# Build paths inside the project like this: base_dir('file_or_dir_path_inside')
 base_dir = environ.Path(__file__) - 2 # move to parent directory 2 times
 
 # Handling directories
-SITE_ROOT = base_dir()
-public_root = base_dir.path('public/')
+SITE_ROOT = base_dir() # returns absolute path of base_dir
+public_root = base_dir.path('public/') # makes another path object <base_dir>/public
 MEDIA_ROOT = public_root('media')
 MEDIA_URL = env.str('MEDIA_URL', default='media/')
 STATIC_ROOT = public_root('static')
 STATIC_URL = env.str('STATIC_URL', default='static/')
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".herokuapp.com"]
-
-
 # Application definition
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".herokuapp.com"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -51,8 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
-    'catalog.apps.CatalogConfig', # /catalog/apps.py
-    'scraper.apps.ScraperConfig' # /sxraper/apps.py
+    'catalog.apps.CatalogConfig', # Defined in /catalog/apps.py
+    'scraper.apps.ScraperConfig' # Defined in /sxraper/apps.py
 ]
 
 MIDDLEWARE = [
@@ -71,7 +70,7 @@ ROOT_URLCONF = 'main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [base_dir('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,7 +105,7 @@ except Exception as e:
     # Fallback to local sqlite implementation if there is no DB config
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': base_dir('db.sqlite3'),
     }
 
 
