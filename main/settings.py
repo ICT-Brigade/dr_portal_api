@@ -19,8 +19,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#k0mq2!4#w8&xu9%mij6!^r(@0sa_u-5mske7j%%*xrf(oo31g'
+# Initialize environment variables
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
+# Environment Variables
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
-    'catalog.apps.CatalogConfig', #This object was created for us in /catalog/apps.py
-    'scraper.apps.ScraperConfig'
+    'catalog.apps.CatalogConfig', # /catalog/apps.py
+    'scraper.apps.ScraperConfig' # /sxraper/apps.py
 ]
 
 MIDDLEWARE = [

@@ -18,13 +18,13 @@ from django.urls import path
 # Use include() to add paths from the catalog application
 from django.urls import include
 
+# Basic URL Routes
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls'))
-    # Added application code
 ]
 
-#Add URL maps to redirect the base URL to our application
+# Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
     path('', RedirectView.as_view(url='catalog/list', permanent=True))
