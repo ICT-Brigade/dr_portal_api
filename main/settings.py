@@ -141,7 +141,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS = (
-    base_dir.path('static/'),
+    base_dir('static/'),
 )
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
