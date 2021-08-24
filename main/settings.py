@@ -31,10 +31,10 @@ base_dir = environ.Path(__file__) - 2 # creates path object from root directory
 
 # Handling directories
 SITE_ROOT = base_dir() # returns absolute path of base_dir
-public_root = base_dir.path('public/') # makes another path object <base_dir>/public
-MEDIA_ROOT = public_root('media')
+main_root = base_dir.path('main/') # makes another path object <base_dir>/public
+MEDIA_ROOT = main_root('media')
 MEDIA_URL = env.str('MEDIA_URL', default='media/')
-STATIC_ROOT = public_root('static')
+STATIC_ROOT = main_root('static')
 STATIC_URL = env.str('STATIC_URL', default='static/')
 
 
