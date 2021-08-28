@@ -72,8 +72,8 @@ ul, li {
 
 /* style for main header */
 .main-nav {
-  background-color: #3e164b;
-  color: #d0c2d4;
+  background-color: #3e164b !important;
+  color: #d0c2d4 !important;
 }
 
 #utility-bar input[type="text"] {
