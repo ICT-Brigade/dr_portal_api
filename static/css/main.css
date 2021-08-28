@@ -128,11 +128,6 @@ ul, li {
   background-color: #4f1c5f !important;
 }
 
-/* .campaign-modal-img img {
-  object-fit: contain;
-  border-radius: 0px !important;
-} */
-
 .campaign-modal-title {
   color: #ffab40;
   font-weight: bold;
@@ -143,4 +138,9 @@ ul, li {
   color: #ffab40 !important;
   border-radius: 10px;
   text-transform: capitalize;
+}
+
+.modal-header {
+  color: #d0c2d4 !important;
+  border-bottom: none !important;
 }
