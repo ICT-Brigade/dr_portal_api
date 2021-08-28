@@ -10,7 +10,7 @@
 <div class="container-fluid px-2 main-content">
   {% if posts_list %}
     <div class="container-fluid p-0 listview-container">
-      <ul class="container-sm list-container">
+      <ul class="container-sm list-container px-0">
         {% for post in posts_list %}
           <li class="card p-3 mb-2 mb-sm-4">
             {% include "campaign_card.html" %}
@@ -40,20 +40,20 @@
   jQuery(function ($) {
       var $list = $('.list-container');
       $list.jscroll({
-          loadingHtml: '<div class="text-center">' +
-              '<img src="{% static 'img/loading.gif' %}" alt="Loading" />' +
-              '</div>',
+          loadingHtml: `<div class="d-flex justify-content-center">
+                          <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        </div>`,
           padding: 100,
           pagingSelector: '.pagination',
           nextSelector: 'a.next-page:last',
-          contentSelector: '.row,.pagination'
+          contentSelector: '.card'
       });
-
 
       $list.on('click', '.clickable', function (event){
         getById($(this).attr('id'));
       });
-
   });
 </script>
 
