@@ -1,5 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: #4f1c5f !important;
+  font-size: 18px;
+  line-height: 20px;
 }
 
 .card {
@@ -96,7 +104,7 @@ ul, li {
   color: #d0c2d4;
 }
 
-.listview-container li:nth-child(odd) .card {
+.list-container li:nth-child(odd) {
   background: #693e76;
 }
 
