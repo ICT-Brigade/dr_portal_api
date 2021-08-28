@@ -37,9 +37,9 @@
                   <p>{{ post.description }}</p>
                 </div>
                   {% if 'volunteer' in post.campaign_type.value %}
-                    <a class="btn btn-primary dr-btn" href="{{post.link}}">VOLUNTEER</a>
+                    <a class="btn btn-primary dr-btn" href="{{post.link}}" target="_blank">VOLUNTEER</a>
                   {% else %}
-                    <a class="btn btn-primary dr-btn" href="{{post.link}}">DONATE</a>
+                    <a class="btn btn-primary dr-btn" href="{{post.link}}" target="_blank">DONATE</a>
                   {% endif %}
               </div>
             </div>
