@@ -142,4 +142,5 @@ ul, li {
   background-color: #87546a !important;
   color: #ffab40 !important;
   border-radius: 10px;
+  text-transform: capitalize;
 }
