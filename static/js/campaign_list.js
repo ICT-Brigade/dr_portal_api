@@ -33,7 +33,7 @@ function getById(campaign_id) {
                 </div>
               </div>
               <p>${data.description}</p>
-              <a class="btn btn-primary dr-btn" href="${data.link}">${btnLabel}</a>
+              <a class="btn btn-primary dr-btn" href="${data.link}" target="_blank">${btnLabel}</a>
             </div>
           </div>
         </div>`;
