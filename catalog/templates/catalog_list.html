@@ -82,6 +82,10 @@
 
 
             $list.on('click', '.card', function (event){
+              //if link button is clicked, do not open modal
+              if (event.target.href) {
+                return;
+              }
               getById($(this).attr('id'));
             });
 
