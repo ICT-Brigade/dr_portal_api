@@ -1,21 +1,25 @@
 <div class="row clickable" id={{post.id}}>
     <div class="col-12 col-sm-6">
       {% if post.image_link == "/default.png"  or not post.image_link %}
-        <img class="landscape flex-fill position-relative top-50 start-50 translate-middle" src="{{request.scheme}}://{{request.get_host}}/static/img/default.png" alt="Image Unavailable">
+        <img class="rounded image-fluid flex-fill position-relative top-50 start-50 translate-middle" src="{{request.scheme}}://{{request.get_host}}/static/img/default.png" alt="Image Unavailable">
       {% else %}
-        <img class="landscape position-relative top-50 start-50 translate-middle" src="{{ post.image_link }}" alt="Image Unavailable">
+        <img class="rounded image-fluid position-relative top-50 start-50 translate-middle" src="{{ post.image_link }}" alt="Image Unavailable">
       {% endif %}
     </div>
     <div class="col-12 col-sm-6 p-2">
         <div>
-            <div>
-              <h4 class="card-title bold">{{ post.beneficiary_location }}{{ post.source_account }}</h4>
-              {%if post.campaign_type %}
-                <span class="px-2 campaign-modal-tag">{{post.campaign_type.value|title}}</span>
-              {% endif %}
+            <div class="d-flex flex-row gap-2">
+                <div>
+                    <h4 class="card-title bold">{{ post.beneficiary_location }}{{ post.source_account }}</h4>
+                </div>
+                {%if post.campaign_type %}
+                <div>
+                      <span class="px-2 campaign-modal-tag">{{post.campaign_type.value|title}}</span>
+                    </div>
+                {% endif %}
             </div>
             <div>
-              <p class="p-2">{{ post.description }}</p>
+              <p>{{ post.description }}</p>
             </div>
             <a class="btn btn-primary dr-btn" href="{{post.link}}">
                 {% if 'volunteer' in post.campaign_type.value %} {{"VOLUNTEER"}} {% else %} {{"DONATE"}} {% endif %}
