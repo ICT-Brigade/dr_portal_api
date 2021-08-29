@@ -1,8 +1,8 @@
 # dr_portal_api
-This will serve as the main backend API for the Disaster Relief Ops Portal.
+This will serve as the main codebase for the Disaster Relief Ops Portal.
 ---
 
-Ito ay magsisilbing backend API para sa Disaster Relief Ops Portal.
+Ito ang magsisilbing pangunahing codebase para sa Disaster Relief Ops Portal.
 ---
 
 ## Setup
@@ -33,17 +33,18 @@ $ python3 manage.py migrate
 ```
 
 ## Setup Environment Variables
-Inside the folder 'main' create the file '.env' containing key-value pairs in the following format
-'''
+Inside the folder 'main' create the file '.env' containing key-value pairs in the following format.
+Note that there should be no space around the '=' and string values do not need.
+```
 KEY=VALUE
-'''
-Note there should be no space around the '=' and string values do not need.
+```
 You can refer to the config variables [the heroku dashboard](https://dashboard.heroku.com/apps/dro-portal/settings)
-Sample .env file
-'''
+
+**Sample .env file**
+```
 SECRET_KEY=random_text
 DEBUG=1
-'''
+```
 
 ## Website Test Run
 Run django in development mode

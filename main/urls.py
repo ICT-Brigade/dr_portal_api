@@ -1,4 +1,4 @@
-"""main URL Configuration
+"""Main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,16 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-# Use include() to add paths from the catalog application
 from django.urls import include
 
 # Basic URL Routes
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('catalog/', include('catalog.urls'))
+    path('catalog/', include('catalog.urls')) # includes all url routes from the catalog section
 ]
 
-# Add URL maps to redirect the base URL to our application
+# Add URL maps to redirect the base URL to the main catalog listing page
 from django.views.generic import RedirectView
 urlpatterns += [
     path('', RedirectView.as_view(url='catalog/list', permanent=True))
