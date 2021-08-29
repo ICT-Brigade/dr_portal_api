@@ -4,10 +4,53 @@ from scraper import defaults
 
 
 def qs_to_config_opts(qs_dict):
+	"""
+		Returns a dictionary whose keys are valid twint search param
+		:param qs_dict: dict
+			A dictionary with the ff. structure:
+			{
+				'from_date': '2021-01-01',
+				'to_date': '2021-07-25',
+				'limit': '1000',
+				'hashtags': '#fabianph relief OR donation OR rescue OR volunteer OR donasyon',
+				'random_key_1': '',
+				'random_key_2': ''
+			}
+		:return : dict
+			{
+				'From_date': '2021-01-01',
+				'To_date': '2021-07-25',
+				'Limit': '1000',
+				'Hashtags': '#fabianph relief OR donation OR rescue OR volunteer OR donasyon'
+			}
+	"""
 	return {k.capitalize():v for k, v in qs_dict.items() if k.lower() in TWINT_OPTS}
 
 
 def make_options(opts):
+	"""
+		Transforms opts dict in a format that can be recognize by twint.Config()
+		:param opts: dict
+			A dictionary with the ff. structure:
+			{
+				'From_date': '2021-01-01',
+				'To_date': '2021-07-25',
+				'Limit': '1000',
+				'Hashtags': '#fabianph relief OR donation OR rescue OR volunteer OR donasyon'
+			}
+		:return : dict
+			{
+				'Limit': '1000',
+				'Retweets': False,
+				'Filter_retweets': True,
+				'Pandas': True,
+				'Hide_output': True,
+				'Stats': False,
+				'Since': '2021-01-01',
+				'Until': '2021-07-25',
+				'Search': '#fabianph relief OR donation OR rescue OR volunteer OR donasyon'
+			}
+	"""
 	new_opts = opts.copy()
 	new_opts = set_default_options(new_opts)
 	for k, v in opts.items():
