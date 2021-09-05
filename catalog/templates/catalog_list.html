@@ -3,11 +3,11 @@
 {% load static %}
 {% load templatetags %}
 {% include "campaign_detail_modal.html" %}
-{% include "utility_bar.html" %}
 
 <script src="{% static 'js/campaign_list.js' %}" defer></script>
 
 <div class="container-fluid px-2 main-content">
+  {% include "utility_bar.html" %}
   {% if posts_list %}
     <div class="container-fluid p-0 listview-container">
       <ul class="container-sm list-container px-0">
@@ -48,7 +48,7 @@
           padding: 100,
           pagingSelector: '.pagination',
           nextSelector: 'a.next-page:last',
-          contentSelector: '.card'
+          contentSelector: '.card,.pagination'
       });
 
       $list.on('click', '.clickable', function (event){
