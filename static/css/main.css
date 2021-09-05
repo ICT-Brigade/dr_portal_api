@@ -84,7 +84,7 @@ ul, li {
   color: #d0c2d4 !important;
 }
 
-#utility-bar input[type="text"] {
+#utility-bar select, input[type="text"] {
   background-color: #71497e;
   color: #fff;
   border-radius: 3px;
