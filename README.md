@@ -1,9 +1,7 @@
 # dr_portal_api
 This will serve as the main codebase for the Disaster Relief Ops Portal.
 ---
-
 Ito ang magsisilbing pangunahing codebase para sa Disaster Relief Ops Portal.
----
 
 ## Setup
 Go to root project directory
@@ -46,7 +44,7 @@ SECRET_KEY=random_text
 DEBUG=1
 ```
 
-## Website Test Run
+## Run Webapp Locally
 Run django in development mode
 ``` sh
 $ python3 manage.py runserver
@@ -63,3 +61,6 @@ $ python3 manage.py runseeder
 ```sh
 $ python3 manage.py twitterscraper --run
 ```
+
+## Heroku Deployment
+[Link to Heroku Deployment Documentation](documentation/deployment.md)
