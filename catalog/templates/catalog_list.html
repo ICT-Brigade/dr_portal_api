@@ -6,13 +6,13 @@
 
 <script src="{% static 'js/campaign_list.js' %}" defer></script>
 
-<div class="container-fluid px-2 main-content">
+<div class="container px-2">
   {% include "utility_bar.html" %}
   {% if posts_list %}
     <div class="container-fluid p-0 listview-container">
       <ul class="container-sm list-container px-0">
         {% for post in posts_list %}
-          <li class="card p-3 mb-2 mb-sm-4">
+          <li class="li-card mb-2 mb-sm-4 rounded border-0">
             {% include "campaign_card.html" %}
           </li>
         {% endfor %}
@@ -48,7 +48,7 @@
           padding: 100,
           pagingSelector: '.pagination',
           nextSelector: 'a.next-page:last',
-          contentSelector: '.card,.pagination'
+          contentSelector: '.li-card,.pagination'
       });
 
       $list.on('click', '.clickable', function (event){
