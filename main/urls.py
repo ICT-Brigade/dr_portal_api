@@ -17,9 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
+# Initialize environment variables
+import environ
+env = environ.Env()
+environ.Env.read_env() # override env variables from .env file
+
+# Admin page moved to an environment variable
+admin_page = env('ADMIN_PAGE')
+if not admin_page.endswith('/'):
+    admin_page += '/'
+
 # Basic URL Routes
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(admin_page, admin.site.urls),
     path('catalog/', include('catalog.urls')) # includes all url routes from the catalog section
 ]
 
