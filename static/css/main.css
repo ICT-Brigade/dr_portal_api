@@ -34,7 +34,6 @@ a:hover {
 
 /* Add some padding inside the card container */
 .container {
-  padding: 2px 2px;
   max-width: 750px !important;
 }
 
