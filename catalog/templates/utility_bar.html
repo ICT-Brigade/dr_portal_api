@@ -1,18 +1,10 @@
 <form method='GET' id="utility-bar">
   <div class="container-sm flex-sm-nowrap py-5">
-    <div class="row row-cols-1 d-flex gap-3">
+    <div class="row row-cols-1 d-flex justify-content-between gap-3 gap-sm-2">
       <input class="p-2 col-sm-3 fw-bold" type="text" name="description" placeholder="Search" id="search" value='{{ request.GET.description }}'>
       <div class="col-sm-3 px-0">
         <select class="form-select p-2 fw-bold" name="campaign_type" aria-label="campaign type select">
-          <option
-          selected="
-          ">
-            <!-- {% if request.GET.campaign_type and request.GET.campaign_type == 'Filter campaign type' %}
-              {{'Filter campaign type'}}
-            {% else %}
-              {{request.GET.campaign_type}}
-            {%endif%} -->
-            <!-- Filter campaign type -->
+          <option selected="">
           </option>
           <option value="donation">donation</option>
           <option value="volunteer">volunteer</option>

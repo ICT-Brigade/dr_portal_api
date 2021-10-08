@@ -15,10 +15,10 @@ function getById(campaign_id) {
         const modal_body = `
           <div class="container-fluid py-0">
             <div class="row">
-              <div class="col-12 col-lg-5 pt-md-3" id="modal-campaign-img">
-                <img class="portrait" src="${img}" alt="Image Unavailable" id="img_${campaign_id}">
+              <div class="col-12 col-lg-5 py-md-3" id="modal-campaign-img">
+                <img class="img-fluid img-cover-modal" src="${img}" alt="Image Unavailable" id="img_${campaign_id}">
               </div>
-              <div class="col-12 col-lg-7 text-wrap">
+              <div class="col-12 col-lg-7 text-wrap pb-3">
                 <div class="d-flex flex-row pt-3 gap-2">
                   <div class="campaign-modal-title">
                     <h4>
