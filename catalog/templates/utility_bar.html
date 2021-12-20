@@ -1,0 +1,17 @@
+<form method='GET' id="utility-bar">
+  <div class="container-sm flex-sm-nowrap py-5">
+    <div class="row row-cols-1 d-flex justify-content-between gap-3 gap-sm-2">
+      <input class="p-2 col-sm-3 fw-bold" type="text" name="description" placeholder="Search" id="search" value='{{ request.GET.description }}'>
+      <div class="col-sm-3 px-0">
+        <select class="form-select p-2 fw-bold" name="campaign_type" aria-label="campaign type select">
+          <option selected="">
+          </option>
+          <option value="donation">donation</option>
+          <option value="volunteer">volunteer</option>
+        </select>
+      </div>
+      <input class="p-2 col-sm-3 fw-bold" type="text" name="beneficiary_location" placeholder="Location" id="campaign_location" value='{{ request.GET.beneficiary_location }}'>
+      <button class="btn btn-primary dr-btn col-sm-2 fw-bold " type="submit" value="SEARCH" id="submit">SEARCH</button>
+    </div>
+  </div>
+</form>

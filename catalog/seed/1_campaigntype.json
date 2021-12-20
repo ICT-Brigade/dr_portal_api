@@ -1,0 +1,26 @@
+[
+    {
+        "model": "catalog.campaigntype",
+        "pk": "donation drive",
+        "fields": {
+            "created_at": "2021-07-25T08:08:22.333Z",
+            "updated_at": "2021-07-25T08:08:22.334Z"
+        }
+    },
+    {
+        "model": "catalog.campaigntype",
+        "pk": "volunteer",
+        "fields": {
+            "created_at": "2021-07-25T08:08:29.632Z",
+            "updated_at": "2021-07-25T08:08:29.632Z"
+        }
+    },
+    {
+        "model": "catalog.campaigntype",
+        "pk": "relief operation",
+        "fields": {
+            "created_at": "2021-07-25T08:08:45.526Z",
+            "updated_at": "2021-07-25T08:08:45.526Z"
+        }
+    }
+]
